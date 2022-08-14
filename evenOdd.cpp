@@ -4,16 +4,24 @@
 using namespace std;
 
 int main() {
-    int n, k;
+    unsigned long long int n, k;
     cin >> n >> k;
-    int mid = n / 2;
-    int ans = 0;
+    unsigned long long int mid = 0;
+    
+    if (n % 2 == 0) {
+        mid = n / 2;
+    } else {
+        mid = n / 2 + 1;
+    }
+
+    unsigned long long int ans = 0;
     if (k > mid) {
-        int diff = k - mid - 1;
-        ans = 2 * diff;
+        k -= mid;
+        ans = 2 * k;
     } else {
         ans = 2 * (k - 1) + 1;
     }
+
     cout << ans << endl;
     return 0;
 }
